@@ -96,8 +96,8 @@ class Persona {
   }
   // 
   while (salida) {
-    random1 = Math.floor(Math.random()*10);
-    random2 = Math.floor(Math.random()*10);
+    random1 = Math.floor(Math.random()*personas.length);
+    random2 = Math.floor(Math.random()*personas.length);
     showResult(random1,random2)
   }
   
