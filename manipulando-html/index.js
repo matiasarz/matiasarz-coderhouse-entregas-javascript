@@ -57,12 +57,7 @@ class Persona {
   personas.push(new Persona("Katy Perry",38.5));
   personas.push(new Persona("Lady Gaga",38));
   personas.push(new Persona("Agelina Jolii",35.5));
-  personas.push(new Persona("Mohamed Salah",35.1));
-  // personas.push(new Persona("",));
-  // personas.push(new Persona("",));
-  // personas.push(new Persona("",));
-  // personas.push(new Persona("",));
-  
+  personas.push(new Persona("Mohamed Salah",35.1));  
   
   let respuesta;
   let salida = true;
@@ -71,7 +66,7 @@ class Persona {
 
   const showOption = (id1,id2)=> {
     alert("Bienvenido a adivina ¿Quién es más rico?");
-    respuesta = parseInt( prompt(`Quién es más rico:\n 1. ${personas[id1].nombre}\n 2. ${personas[id2].nombre}`));
+    respuesta = prompt(`Quién es más rico:\n 1. ${personas[id1].nombre}\n 2. ${personas[id2].nombre}`);
     return respuesta;
   }
 
@@ -80,9 +75,11 @@ class Persona {
       puntos += 1;
       alert(`Tu respuesta es: ${personas[id1].nombre}.\nCorrecto!\n\n${personas[id1].nombre} es más rico que ${personas[id2].nombre}`);
       preguntas.innerHTML += `<div><i class='fa-solid fa-check'></i>Quién es más rico:</div><div>1. ${personas[id1].nombre}</div><div>2. ${personas[id2].nombre}</div></li>`;
+      preguntas.innerHTML += `<div>Tu respuesta es: ${personas[id1].nombre}.</div>\n<p class='correcto'>Correcto!\n\n${personas[id1].nombre} es más rico que ${personas[id2].nombre}</p>`;
     } else {
       alert(`Tu respuesta es: ${personas[id1].nombre}.\nIncorrecto!\n\n${personas[id2].nombre} es más rico que ${personas[id1].nombre}`);
       preguntas.innerHTML += `<div><i class='fa-solid fa-xmark'></i>Quién es más rico:</div><div>1. ${personas[id1].nombre}</div><div>2. ${personas[id2].nombre}</div></li>`;
+      preguntas.innerHTML += `<div>Tu respuesta es: ${personas[id1].nombre}.</div>\n<p class='incorrecto'>Incorrecto!\n\n${personas[id2].nombre} es más rico que ${personas[id1].nombre}</p>`;
       alert("Has perdido!\n\nTotal de puntos: "+ puntos);
       resultado.innerHTML += `<div>Has perdido!</div><div>Total de puntos: ${puntos}</div>`;
       salida = false;
@@ -94,9 +91,11 @@ class Persona {
       puntos += 1;
       alert(`Tu respuesta es: ${personas[id2].nombre}.\nCorrecto!\n\n${personas[id2].nombre} es más rico que ${personas[id1].nombre}`);
       preguntas.innerHTML += `<div><i class='fa-solid fa-check'></i>Quién es más rico:</div><div>1. ${personas[id1].nombre}</div><div>2. ${personas[id2].nombre}</div></li>`;
+      preguntas.innerHTML += `<div>Tu respuesta es: ${personas[id2].nombre}.</div>\n<p class='correcto'>Correcto!\n\n${personas[id2].nombre} es más rico que ${personas[id1].nombre}</p>`;
     } else {
       alert(`Tu respuesta es: ${personas[id2].nombre}.\nIncorrecto!\n\n${personas[id1].nombre} es más rico que ${personas[id2].nombre}`);
       preguntas.innerHTML += `<div><i class='fa-solid fa-xmark'></i>Quién es más rico:</div><div>1. ${personas[id1].nombre}</div><div>2. ${personas[id2].nombre}</div></li>`;
+      preguntas.innerHTML += `<div>Tu respuesta es: ${personas[id2].nombre}.</div>\n<p class='incorrecto'>Incorrecto!\n\n${personas[id1].nombre} es más rico que ${personas[id2].nombre}</p>`;
       alert("Has perdido!\n\nTotal de puntos: "+ puntos);
       resultado.innerHTML += `<div>Has perdido!</div><div>Total de puntos: ${puntos}</div>`;
       salida = false;
@@ -108,12 +107,22 @@ class Persona {
     if (respuesta != 1 && respuesta != 2 && contador <= 1) {
       alert("La opción es incorrecta\n\nUltimo intento, si te equívocas pierdes. ¡OJO!");
       preguntas.innerHTML += `<div><i class='fa-solid fa-xmark'></i>Quién es más rico:</div><div>1. ${personas[id1].nombre}</div><div>2. ${personas[id2].nombre}</div></li>`;
+      if (respuesta === "") {
+        preguntas.innerHTML += `<p class='incorrecto'>No ingreso ningún valor<p>`;
+      } else {
+        preguntas.innerHTML += `<p class='incorrecto'>Su respuesta es: ${respuesta}<p>`;
+      }
     }
     else if (contador > 1) {
       alert("Demásiados intentos.\n\nHas perdido, lo lamento!");
       resultado.innerHTML = `<div>Has perdido!</div><div>Total de puntos: ${puntos}</div>`;
       salida = false;
       preguntas.innerHTML += `<div><i class='fa-solid fa-xmark'></i>Quién es más rico:</div><div>1. ${personas[id1].nombre}</div><div>2. ${personas[id2].nombre}</div></li>`;
+      if (respuesta === "") {
+        preguntas.innerHTML += `<p class='incorrecto'>No ingreso ningún valor<p>`;
+      } else {
+        preguntas.innerHTML += `<p class='incorrecto'>Su respuesta es: ${respuesta}<p>`;
+      }
     }
     return salida
   }

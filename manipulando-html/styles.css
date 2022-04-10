@@ -54,3 +54,9 @@ body {
     color: #b00;
     font-size: 25px;
 }
+.correcto {
+    color: #0b0;
+}
+.incorrecto {
+    color: #b00;
+}
