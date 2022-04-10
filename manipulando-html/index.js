@@ -108,9 +108,9 @@ class Persona {
       alert("La opción es incorrecta\n\nUltimo intento, si te equívocas pierdes. ¡OJO!");
       preguntas.innerHTML += `<div><i class='fa-solid fa-xmark'></i>Quién es más rico:</div><div>1. ${personas[id1].nombre}</div><div>2. ${personas[id2].nombre}</div></li>`;
       if (respuesta === "") {
-        preguntas.innerHTML += `<p class='incorrecto'>No ingreso ningún valor<p>`;
+        preguntas.innerHTML += `<p class='incorrecto'>Incorrecto!. No ingreso ningún valor<p>`;
       } else {
-        preguntas.innerHTML += `<p class='incorrecto'>Su respuesta es: ${respuesta}<p>`;
+        preguntas.innerHTML += `<p class='incorrecto'>Incorrecto!. Su respuesta es: ${respuesta}<p>`;
       }
     }
     else if (contador > 1) {
@@ -119,9 +119,9 @@ class Persona {
       salida = false;
       preguntas.innerHTML += `<div><i class='fa-solid fa-xmark'></i>Quién es más rico:</div><div>1. ${personas[id1].nombre}</div><div>2. ${personas[id2].nombre}</div></li>`;
       if (respuesta === "") {
-        preguntas.innerHTML += `<p class='incorrecto'>No ingreso ningún valor<p>`;
+        preguntas.innerHTML += `<p class='incorrecto'>Incorrecto!. No ingreso ningún valor<p>`;
       } else {
-        preguntas.innerHTML += `<p class='incorrecto'>Su respuesta es: ${respuesta}<p>`;
+        preguntas.innerHTML += `<p class='incorrecto'>Incorrecto!. Su respuesta es: ${respuesta}<p>`;
       }
     }
     return salida
