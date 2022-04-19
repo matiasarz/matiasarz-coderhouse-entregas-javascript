@@ -17,7 +17,7 @@ class Persona {
 
 const personas = [];
 
-personas.push(new Persona("Francesco Totti",89,"imagenes/totti.webp"));
+personas.push(new Persona("Francesco Totti",89,"imagenes/totti.jpg"));
 personas.push(new Persona("Mathieu Flamini",97,"imagenes/flamini.jpg"));
 personas.push(new Persona("Andrés Iniesta",106,"imagenes/iniesta.jpg"));
 personas.push(new Persona("Gareth Bale",124,"imagenes/bale.jpg"));
@@ -26,13 +26,13 @@ personas.push(new Persona("Zlatan Ibrahimovic",168,"imagenes/zatlan.jpg"));
 personas.push(new Persona("Lionel Messi",355,"imagenes/messi.jpg"));
 personas.push(new Persona("David Beckham",400,"imagenes/beckham.jpg"));
 personas.push(new Persona("Cristiano Ronaldo",1000,"imagenes/cristiano.jpg"));
-personas.push(new Persona("Faiq Bolkiah",1800,"imagenes/bolkhia.webp"));
+personas.push(new Persona("Faiq Bolkiah",1800,"imagenes/bolkhia.jpg"));
 personas.push(new Persona("Roger Federer",106.3,"imagenes/federer.jpg"));
 personas.push(new Persona("Lebron James",88.2,"imagenes/lebron.jpg"));
 personas.push(new Persona("Dwayne Johnson 'The Rock'",87.5,"imagenes/rock.jpg"));
-personas.push(new Persona("James Patterson",80,"imagenes/patterson.webp"));
+personas.push(new Persona("James Patterson",80,"imagenes/patterson.jpg"));
 personas.push(new Persona("Stephen Curry",74.4,"imagenes/curry.jpg"));
-personas.push(new Persona("Ariana Grande",72,"imagenes/grande.webp"));
+personas.push(new Persona("Ariana Grande",72,"imagenes/grande.jpg"));
 personas.push(new Persona("Ryan Reynolds",71.5,"imagenes/ryan.jpg"));
 personas.push(new Persona("Gordon Ramsay",70,"imagenes/gordon.jpg"));
 personas.push(new Persona("Jonas Brothers",68.5,"imagenes/jonas.jpg"));
@@ -64,6 +64,8 @@ start.addEventListener("click",()=> {
       cloneGame.children[1].children[0].src = `${personas[id2].imagen}`;
       
       cloneGame.children[2].children[0].textContent = `"${personas[id1].nombre}"`;
+      cloneGame.children[2].children[1].textContent = `has`;
+      cloneGame.children[2].children[2].textContent = parseFloat(`${personas[id1].patrimonio}` * 1,000,000) + " Millones";
       cloneGame.children[3].children[0].textContent = `"${personas[id2].nombre}"`;
       
       // Eventos con funciones
@@ -94,6 +96,8 @@ const showOptions = (id1,id2)=> {
   contenedor2.children[1].children[0].src = `${personas[id2].imagen}`;
       
   contenedor2.children[2].children[0].textContent = `"${personas[id1].nombre}"`;
+  contenedor2.children[2].children[1].textContent = `has`;
+  contenedor2.children[2].children[2].textContent = parseFloat(`${personas[id1].patrimonio}` * 1,000,000) + " Millones";
   contenedor2.children[3].children[0].textContent = `"${personas[id2].nombre}"`;
   patrimonios = [personas[id2].patrimonio,personas[id1].patrimonio];
 
@@ -125,8 +129,6 @@ const richer = ()=> {
 const lessMoney = ()=> {
   id1 = Math.floor(Math.random()*personas.length);
   id2 = Math.floor(Math.random()*personas.length);
-  console.log(id1);
-  console.log(id2);
   if (patrimonios[0] < patrimonios[1]) {
     contadorPuntos++;
     if (id1 === id2) {
