@@ -89,13 +89,22 @@
 .options div {
     color: #fff989;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 17px;
     border: 2px solid #eee;
     border-radius: 25px;
-    background-color: #0009;
+    background-color: #0003;
     padding: 10px 40px;
     margin: 15px auto;
     cursor: pointer;
+}
+.options div {
+    color: #fff989;
+}
+
+.options div:hover {
+    transition: background .3s;
+    background-color: #fff;
+    color: #000;
 }
 .options .fa-sort-up {
     font-size: 30px;
@@ -170,9 +179,6 @@
     right: 0;
     bottom: 0;
     background: #0005;
-}
-.less-money p, .richer p {
-    color: #fff989;
 }
 .richer {
     display: flex;
@@ -271,4 +277,47 @@
         padding: 20px;
     }
 }
+@media only screen and (min-width: 900px) {
+    .after-play {
+        font-size: 25px;
+        padding: 30px;
+    }
+    .less-money p, .richer p {
+        font-size: 16px;
+    }
+    .name-one .cash {
+        font-size: 40px;
+    }
+}
 
+
+
+.h3-3 {
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+    bottom: 0;
+    margin: 20px;
+}
+.h3-4 {
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    /* animation: score-up-and-down 2s; */
+}
+
+.animacion-score {
+    animation: score-up-and-down 2s;
+}
+
+@keyframes score-up-and-down {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
