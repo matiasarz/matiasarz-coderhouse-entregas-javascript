@@ -152,8 +152,8 @@ const lessMoney = ()=> {
   } 
   else {
     localStorage.getItem("puntos") > contadorPuntos ? console.log("lo que esta en el ls es mayor") : highScore();
-    gameOver();
     contadorPuntos < 3 ? swal(`Your score ${contadorPuntos}`,"you could do better",'error') : swal(`Your score ${contadorPuntos}`,"Well done",'success')
+    gameOver();
   }
 }
   
